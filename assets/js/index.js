@@ -1,7 +1,7 @@
 
 //configuração carrossel 1
 
-let slideIndex1 = 0;
+let slide1Index = 0;
 let slideInterval;
 
 function showSlide1(index) {
@@ -9,20 +9,20 @@ function showSlide1(index) {
     const totalSlides1 = slides1.length;
 
     if (index >= totalSlides1) {
-        slideIndex1 = 0;
+        slide1Index = 0;
     } else if (index < 0) {
-        slideIndex1 = totalSlides1 - 1;
+        slide1Index = totalSlides1 - 1;
     } else {
-        slideIndex1 = index;
+        slide1Index = index;
     }
 
-    const offset = -slideIndex1 * 100;
+    const offset = -slide1Index * 100;
     const carousel = document.querySelector('.carousel1');
     carousel.style.transform = `translateX(${offset}%)`;
 }
 
 function moveSlideC1(step) {
-    showSlide1(slideIndex1 + step);
+    showSlide1(slide1Index + step);
     2();
 }
 
@@ -33,12 +33,12 @@ function autoSlide() {
 }
 
 function resetInterval() {
-    clearInterval(slideInterval);
+    clearInterval(slide1Interval);
     autoSlide();
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-    showSlide1(slideIndex1);
+    showSlide1(slide1Index);
     autoSlide();
 });
 
